@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Overall Page */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* Container */
+        .container {
+            flex: 1;
+        }
+        
+        /* Title */
+        header {
+            text-align: center;
+            background-color: red;
+            padding: 20px;
+            font-size: 2em;
+            color: white;
+        }
+        
+        /* Menu Bar */
+        nav {
+            text-align: center;
+            padding: 14px;
+            background-color: rgb(255, 255, 255);
+        }
+        
+        nav a {
+            display: inline-block;
+            color: black;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        nav a:hover {
+            background-color: lightgrey;
+            color: black;
+        }
+        
+        /* Attractive Content */
+        .attractive-content {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .attractive-content h2 {
+            color: white;
+        }
+
+        /* Square Box */
+        .square-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 50%; /* Reduce the width of the box */
+            margin: 0 auto; /* Center the box horizontally */
+        }
+
+        .square-box h3 {
+            color: black;
+        }
+
+        /* Hospital Selection Box */
+        .hospital-selection-box {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .hospital-selection-box select {
+            color: white;
+            background-color: black;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Smaller Font for Footer */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: red;
+            font-size: 0.8em;
+        }
+
+        /* Important Information and Contact Us */
+        .small-font {
+            font-size: 0.8em; /* Define smaller font size */
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Title -->
+        <header>Ambulance Tracking System</header>
+        
+        <!-- Menu Bar -->
+        <nav class="nav-wrapper">
+            <a href="home.html" class="nav-link" id="home-link">Home</a>
+            <a href="ambulance.html" class="nav-link" id="ambulance-link">Ambulance Driver</a>
+            <a href="hospital.html" class="nav-link" id="driver-link">Hospital</a>
+            <a href="traffic_police.html" class="nav-link" id="settings-link">Police</a>
+            <a href="about-us.html" class="nav-link" id="about-link">About Us</a>
+            <div class="underline"></div>
+        </nav>
+        
+        <!-- Attractive Content -->
+        <div class="attractive-content">
+            <h2>Welcome to the Hospital Page</h2>
+            <p>Find and select a hospital from the list below:</p>
+        </div>
+
+        <!-- Square Box (Combining Hospital Name, Accept Patient, and Find and Select) -->
+        <div class="square-box">
+            <h3>Hospital Name</h3>
+            <select name="hospital_name_hp">
+                {% for i in hospital_name_hp %}
+                <option value="{{i[0]}}">{{i[0]}}</option>
+                {% endfor %}
+            </select>
+            <h3>Accept Patient</h3>
+            <select name="accept_patient">
+                <option value=1>Accepting Patients</option>
+                <option value=0>Not Accepting Patients</option>
+            </select>
+            <input type="submit" value="Submit">
+        
+
+        <!-- Hospital Selection Box -->
+       
+            {{record_updated}}
+        </div>
+
+        <!-- Important Information and Contact Us (in smaller font) -->
+        <div class="small-font">
+            <p>Important Information:</p>
+            <p>Contact Us:</p>
+        </div>
+
+    </div>
+    
+    <!-- Footer -->
+    <footer>All Rights Reserved &copy; 2023</footer>
+    
+</body>
+</html>

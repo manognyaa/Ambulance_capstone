@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Overall Page */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* Container */
+        .container {
+            flex: 1;
+        }
+        
+        /* Title */
+        header {
+            text-align: center;
+            background-color: red;
+            padding: 20px;
+            font-size: 2em;
+            color: white;
+        }
+        
+        /* Menu Bar */
+        nav {
+            text-align: center;
+            padding: 14px;
+            background-color: rgb(255, 255, 255);
+        }
+        
+        nav a {
+            display: inline-block;
+            color: black;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        nav a:hover {
+            background-color: lightgrey;
+            color: black;
+        }
+        
+        /* Content Box */
+        .content-box {
+            background-color: rgb(246, 246, 246);
+            color: rgb(0, 0, 0);
+            padding: 50px;
+            width: 60%;
+            margin: 100px auto;
+            text-align: center;
+            border-radius: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .content-box button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 12px;
+        }
+        
+        /* Chatbot */
+        .chatbot {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            background: url('chatbot.png') no-repeat center center;
+            background-size: cover;
+            cursor: pointer;
+            animation: chatbot-animation 1.5s infinite alternate;
+        }
+        
+        @keyframes chatbot-animation {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.2); }
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: red;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Title -->
+        <header>Ambulance Tracking System</header>
+        
+        <!-- Menu Bar -->
+        <nav class="nav-wrapper">
+            <a href="home.html" class="nav-link" id="home-link">Home</a>
+            <a href="ambulance.html" class="nav-link" id="ambulance-link">Ambulance Driver</a>
+            <a href="hospital.html" class="nav-link" id="driver-link">Hospital</a>
+            <a href="traffic_police.html" class="nav-link" id="settings-link">Police</a>
+            <a href="about-us.html" class="nav-link" id="about-link">About Us</a>
+            <div class="underline"></div>
+        </nav>
+        
+        <!-- Content Box -->
+        <div class="content-box">
+            <div class="selection">
+                <form action="/traffic-police" method="POST">
+                    <select name="traffic_name_tp" onchange="">
+                        {% for i in traffic_list %}
+                        <option value="{{i[0]}}">{{i[0]}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="Signal_Status">
+                        <option value=1>Free</option>
+                        <option value=0>Busy</option>
+                    </select>
+                    <input type="submit"/>
+                </form>
+            </div>
+            {{record_updated}}
+            <div class="traffic-details">
+                <table>
+                    <tr>
+                        <th>Signal Location</th>
+                        <th>Signal status</th>
+                    </tr>
+                    {% for i in traffic_list %}
+                    <tr>
+                        <td>{{i[0]}}</td>
+                        <td>{{i[1]}}</td>
+                    </tr>
+                    {%endfor%}
+                </table>
+            </div>
+        </div>
+        
+        <!-- Chatbot Icon -->
+        <div class="chatbot"></div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>All Rights Reserved &copy; 2023</footer>
+    
+</body>
+</html>

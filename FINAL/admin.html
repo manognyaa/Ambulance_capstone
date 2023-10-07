@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Page</title>
+    <meta charset="UTF-8" />
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: red;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .form-container {
+            background-color: #fff;
+            border: 3px solid red;
+            border-radius: 15px;
+            padding: 20px;
+            width: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        input[type="submit"] {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: darkred;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .Traffic-Police-container, .hospital-container {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function proffesion_question(value) {
+            if (value === "trp") {
+                document.getElementsByClassName('Traffic-Police-container')[0].style.display = "block";
+                document.getElementsByClassName('hospital-container')[0].style.display = "none";
+            } else if (value === "hpt") {
+                document.getElementsByClassName('Traffic-Police-container')[0].style.display = "none";
+                document.getElementsByClassName('hospital-container')[0].style.display = "block";
+            } else {
+                document.getElementsByClassName('Traffic-Police-container')[0].style.display = "none";
+                document.getElementsByClassName('hospital-container')[0].style.display = "none";
+            }
+        }
+        function redirectToHome() {
+            window.location.href = "home.html";
+        }
+    </script>
+
+    <header>
+        <h1>Admin Page of AmbulanceAlertingSystem</h1>
+    </header>
+
+    <div class="container">
+        <div class="form-container">
+
+            <form action="/admin" method="POST" onsubmit="redirectToHome(); return false;">
+                <label>
+                    <p>Name</p>
+                    <input type="text" name="name" required />
+                </label>
+            
+                <label>
+                    <p>Email ID</p>
+                    <input type="email" name="Email" required />
+                </label>
+            
+                <label>
+                    <p>Profession</p>
+                    <select name="profession" id="profession" onchange="proffesion_question(this.value);" required>
+                        <option disabled selected>--select an option--</option>
+                        <option value="hpt">Hospital</option>
+                        <option value="trp">Traffic Police</option>
+                        <option value="amd">Ambulance driver</option>
+                    </select>
+                </label>
+            
+                <label>
+                    <p>Password</p>
+                    <input type="password" name="password" required />
+                </label>
+                <br>
+                <br>
+                <div class="Traffic-Police-container">
+                    <!-- Your Traffic Police specific fields go here -->
+                </div>
+                <div class="hospital-container">
+                    <!-- Your Hospital specific fields go here -->
+                </div>
+                <br>
+            
+                <input type="submit" name="submit" value="Submit" />
+            </form>
+            
+        </div>
+    </div>
+</body>
+</html>

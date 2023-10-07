@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Overall Page */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* Container */
+        .container {
+            flex: 1;
+        }
+        
+        /* Title */
+        header {
+            text-align: center;
+            background-color: red;
+            padding: 20px;
+            font-size: 2em;
+            color: white;
+        }
+        
+        /* Menu Bar */
+        nav {
+            text-align: center;
+            padding: 14px;
+            background-color: rgb(255, 255, 255);
+        }
+        
+        nav a {
+            display: inline-block;
+            color: black;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        nav a:hover {
+            background-color: rgb(255, 255, 255);
+            color: black;
+        }
+        
+        /* Content Box */
+        .content-box {
+            background-color: rgba(255, 255, 255, 0.8);
+            color:#000000;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Team Members */
+        .team-members {
+            text-align: center;
+        }
+
+        .team-members h2 {
+            color: rgb(0, 0, 0);
+        }
+
+        .team-members ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .team-members li {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+
+        /* Smaller Font for Footer */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: red;
+            font-size: 0.8em;
+        }
+
+        /* Read More Button */
+        .read-more-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .read-more-button:hover {
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Title -->
+        <header>About Us</header>
+        
+        <!-- Menu Bar -->
+        <nav class="nav-wrapper">
+            <a href="home.html" class="nav-link" id="home-link">Home</a>
+            <a href="ambulance.html" class="nav-link" id="ambulance-link">Ambulance Driver</a>
+            <a href="hospital.html" class="nav-link" id="driver-link">Hospital</a>
+            <a href="traffic_police.html" class="nav-link" id="settings-link">Police</a>
+            <a href="about-us.html" class="nav-link" id="about-link">About Us</a>
+            <div class="underline"></div>
+        </nav>
+        
+        <!-- Content Box -->
+        <div class="content-box">
+            <h2>Hello People !!</h2>
+            <p>We are a dedicated team of final year students working on a project aimed at providing critical assistance during emergencies. Our goal is to connect people with essential services when they need it the most.</p>
+            <a href="#" class="read-more-button">Read More</a>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>All Rights Reserved &copy; 2023</footer>
+    
+</body>
+</html>
